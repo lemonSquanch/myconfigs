@@ -1,1 +1,1 @@
-# myvimrc
+Contains a few of my configuration files.
