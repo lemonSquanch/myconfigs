@@ -1,0 +1,7 @@
+
+alias gs="git status";
+alias gd="git diff";
+alias gk="gitk";
+alias ll="ls -lah";
+alias ls="ls --color=auto";
+alias grep="grep --color";
