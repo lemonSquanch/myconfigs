@@ -1,6 +1,18 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
+" Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
+let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
+
+" Highlight column 110
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
+" Source .vimrc from any folder you run vim from..
+set exrc
+" Source only secure stuff from the custom .vimrc files
+set secure
+
 " Shortcut "\ + <Space>", to rapidly toggle "set list". AKA: Show
 " hidden characters(tab, space, eol, trail etc..).
 nmap <leader><space> :set list!<CR>
@@ -211,7 +223,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
   if $COLORTERM == 'gnome-terminal'
 "set term=gnome-256color
     set term=xterm-256color
@@ -220,7 +232,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
+
 endif
 
 
@@ -581,4 +593,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
