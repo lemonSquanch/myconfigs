@@ -2,6 +2,8 @@ alias gs="git status";
 alias gd="git diff";
 alias gk="gitk";
 
+alias repo="repo --color=always --time";
+
 alias df="df -h";
 
 alias ll="ls -lah";
