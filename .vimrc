@@ -1,6 +1,18 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
+" Press "\e", to show/hide syntastic error loc list for current window
+function! ToggleErrors()
+    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+        " No location/quickfix list shown, open syntastic error
+        " location panel
+        Errors
+    else
+        lclose
+    endif
+endfunction
+nnoremap <leader>e : <C-u>call ToggleErrors()<CR>
+
 " Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
 let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
 
@@ -223,7 +235,6 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-
   if $COLORTERM == 'gnome-terminal'
 "set term=gnome-256color
     set term=xterm-256color
@@ -232,14 +243,11 @@ else
       set term=xterm-256color
     endif
   endif
-
 endif
-
 
 if &term =~ '256color'
   set t_ut=
 endif
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -430,7 +438,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 let g:syntastic_aggregate_errors = 1
 
 " Tagbar
