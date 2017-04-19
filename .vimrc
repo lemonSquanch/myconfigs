@@ -46,10 +46,10 @@ if !exists('*s:setupNoWrapping')
         set nowrap
     endfunction
 endif
-" No wrap for: *.c, *.cpp, *.h, *.hpp
+" No wrap for source files
 augroup vimrc-no-wrapping-code
   autocmd!
-  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp call s:setupNoWrapping()
+  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake call s:setupNoWrapping()
 augroup END
 
 ""*****************************************************************************
