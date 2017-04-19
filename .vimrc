@@ -36,7 +36,20 @@ nnoremap <leader>cdc :cd %:p:h<CR>:pwd<CR>
 
 " Shortcut "\nt", to remove trailing whitespace.
 nnoremap <leader>nt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-"*****************************************************************************
+
+" Disable line wrapping for common source files
+if !exists('*s:setupNoWrapping')
+    function s:setupNoWrapping()
+        set nowrap
+    endfunction
+endif
+" No wrap for: *.c, *.cpp, *.h, *.hpp
+augroup vimrc-no-wrapping-code
+  autocmd!
+  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp call s:setupNoWrapping()
+augroup END
+
+""*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
 if has('vim_starting')
