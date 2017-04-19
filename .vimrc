@@ -1,6 +1,9 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
+" Press "\nn", "\nm" to switch between open buffers
+nnoremap <leader>nn :bn<CR>
+nnoremap <leader>nm :bp<CR>
 " Press "\e", to show/hide syntastic error loc list for current window
 function! ToggleErrors()
     if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
