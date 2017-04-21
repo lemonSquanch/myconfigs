@@ -1,3 +1,7 @@
+# Contains my common linux configurations.
+# This file is meant to be sourcedi..
+
+# Aliases
 alias gs="git status";
 alias gd="git diff";
 alias gk="gitk";
@@ -9,3 +13,7 @@ alias df="df -h";
 alias ll="ls -lah";
 alias ls="ls --color=auto";
 alias grep="grep --color";
+
+# Variables
+# Note: Set PATH variable value before sourceing this file.
+export SQCHY_CLANG_FORMAT_PY="$SQCHY_CLANG_FORMAT_PY_PATH";

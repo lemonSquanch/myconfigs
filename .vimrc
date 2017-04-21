@@ -4,6 +4,7 @@
 " Press "\nn", "\nm" to switch between open buffers
 nnoremap <leader>nn :bn<CR>
 nnoremap <leader>nm :bp<CR>
+
 " Press "\e", to show/hide syntastic error loc list for current window
 function! ToggleErrors()
     if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
@@ -51,6 +52,20 @@ augroup vimrc-no-wrapping-code
   autocmd!
   autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake call s:setupNoWrapping()
 augroup END
+
+" Press "\f", to format current file with clang-format.py.
+function! MyClangFormatFile()
+    let clangFormatFriendlyFileTypes = ['h', 'hpp', 'c', 'cxx', 'cpp']
+    if index(clangFormatFriendlyFileTypes, &filetype) == -1
+        echo "Could not format, file type is unsupported!"
+        return
+    endif
+    " Format file with clang-format
+    let l:lines="all"
+    py3f $SQCHY_CLANG_FORMAT_PY
+endfunction
+map <leader>f : <C-u> call MyClangFormatFile()<CR>
+
 
 ""*****************************************************************************
 "" Vim-PLug core
