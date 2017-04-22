@@ -50,7 +50,7 @@ endif
 " No wrap for source files
 augroup vimrc-no-wrapping-code
   autocmd!
-  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake call s:setupNoWrapping()
+  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake,*.sh call s:setupNoWrapping()
 augroup END
 
 " Press "\f", to format current file with clang-format.py.
