@@ -20,8 +20,8 @@ nnoremap <leader>e : <C-u>call ToggleErrors()<CR>
 " Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
 let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
 
-" Highlight column 110
-set colorcolumn=110
+" Highlight column 120
+set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 
 " Source .vimrc from any folder you run vim from..
