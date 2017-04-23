@@ -66,7 +66,8 @@ function! MyClangFormatFile()
 endfunction
 map <leader>f : <C-u> call MyClangFormatFile()<CR>
 
-
+" Load local specific ~/.vimrc_local file
+source ~/.vimrc_local
 ""*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
