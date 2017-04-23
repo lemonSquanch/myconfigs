@@ -111,6 +111,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'Valloric/YouCompleteMe'
 
 let g:make = 'gmake'
 if exists('make')
