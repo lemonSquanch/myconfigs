@@ -1,6 +1,9 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
+" Load local specific ~/.vimrc_local file
+source ~/.vimrc_local
+
 " Press "\nn", "\nm" to switch between open buffers
 nnoremap <leader>nn :bn<CR>
 nnoremap <leader>nm :bp<CR>
@@ -62,12 +65,10 @@ function! MyClangFormatFile()
     endif
     " Format file with clang-format
     let l:lines="all"
-    py3f $SQCHY_CLANG_FORMAT_PY
+    execute 'py3f' . g:SQCHY_CLANG_FORMAT_PY
 endfunction
 map <leader>f : <C-u> call MyClangFormatFile()<CR>
 
-" Load local specific ~/.vimrc_local file
-source ~/.vimrc_local
 ""*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
