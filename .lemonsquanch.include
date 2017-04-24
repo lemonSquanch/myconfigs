@@ -1,5 +1,5 @@
 # Contains my common linux configurations.
-# This file is meant to be sourcedi..
+# This file is meant to be sourced..
 
 # Aliases
 alias gs="git status";
