@@ -4,6 +4,9 @@
 " Load local specific ~/.vimrc_local file
 source ~/.vimrc_local
 
+" Press \c, to prepend license to top of the current buffer.
+nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
+
 " Press "\nn", "\nm" to switch between open buffers
 nnoremap <leader>nn :bn<CR>
 nnoremap <leader>nm :bp<CR>
