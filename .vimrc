@@ -63,6 +63,9 @@ function! MyClangFormatFile()
         echo "Could not format, file type is unsupported!"
         return
     endif
+    if empty(g:SQCHY_CLANG_FORMAT_PY)
+        return
+    endif
     " Format file with clang-format
     let l:lines="all"
     execute 'py3f' . g:SQCHY_CLANG_FORMAT_PY

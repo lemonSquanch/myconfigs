@@ -1,3 +1,6 @@
 " Allow .ycm_extra_conf.py to be loaded from projects.
 let g:ycm_extra_conf_globlist = []
+" Path to clang-format.py. Will be used to format source code.
 let g:SQCHY_CLANG_FORMAT_PY = ''
+" Set build command that will execute with :make
+set makeprg = ''
