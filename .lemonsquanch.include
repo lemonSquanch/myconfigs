@@ -15,8 +15,5 @@ alias ls="ls --color=auto";
 alias grep="grep --color";
 
 # Variables
-# Note: Set PATH variable value before sourceing this file.
-export SQCHY_CLANG_FORMAT_PY="$SQCHY_CLANG_FORMAT_PY_PATH";
-
 # Ensure gvim and other tools can inherit environment from ~/.bashrc
 export BASH_ENV=~/.bashrc;
