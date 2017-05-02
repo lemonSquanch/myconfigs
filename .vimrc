@@ -120,6 +120,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
+Plug 'jceb/vim-orgmode'
 
 let g:make = 'gmake'
 if exists('make')
