@@ -125,6 +125,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 Plug 'jceb/vim-orgmode'
 Plug 'bkad/CamelCaseMotion'
+if isdirectory('/usr/local/opt/fzf')
+      Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+  else
+      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+      Plug 'junegunn/fzf.vim'
+endif
 
 let g:make = 'gmake'
 if exists('make')
