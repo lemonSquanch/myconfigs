@@ -1,6 +1,9 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
+" Were my camels at? Add camel case movement: ",e", ",b", ",w"
+" todo add mappings for CamelCaseMotion ,w ,b ,e etc.
+
 " Load local specific ~/.vimrc_local file
 source ~/.vimrc_local
 
@@ -121,6 +124,7 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 Plug 'jceb/vim-orgmode'
+Plug 'bkad/CamelCaseMotion'
 
 let g:make = 'gmake'
 if exists('make')
