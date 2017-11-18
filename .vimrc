@@ -34,7 +34,7 @@ set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 
 " Source .vimrc from any folder you run vim from..
-set exrc
+" set exrc
 " Source only secure stuff from the custom .vimrc files
 set secure
 
