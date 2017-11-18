@@ -10,9 +10,9 @@ source ~/.vimrc_local
 " Press \c, to prepend license to top of the current buffer.
 nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
 
-" Press "\nn", "\nm" to switch between open buffers
+" Press "\nn", "\nb" to switch between open buffers
 nnoremap <leader>nn :bn<CR>
-nnoremap <leader>nm :bp<CR>
+nnoremap <leader>nb :bp<CR>
 
 " Press "\e", to show/hide syntastic error loc list for current window
 function! ToggleErrors()
