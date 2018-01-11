@@ -1,11 +1,11 @@
 "*****************************************************************************
 " My stuff
 "*****************************************************************************
-" Were my camels at? Add camel case movement: ",e", ",b", ",w"
-" todo add mappings for CamelCaseMotion ,w ,b ,e etc.
-
 " Load local specific ~/.vimrc_local file
 source ~/.vimrc_local
+
+" Format files with clang format on save(pre-write)
+let g:clang_format#auto_format=1
 
 " Press \c, to prepend license to top of the current buffer.
 nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
@@ -130,7 +130,6 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 Plug 'jceb/vim-orgmode'
-Plug 'bkad/CamelCaseMotion'
 if isdirectory('/usr/local/opt/fzf')
       Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   else
@@ -196,6 +195,10 @@ Plug 'xolox/vim-lua-inspect'
 Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
+"*****************************************************************************
+"" Mine
+Plug 'mhinz/vim-startify'
+Plug 'rhysd/vim-clang-format'
 "*****************************************************************************
 "*****************************************************************************
 
