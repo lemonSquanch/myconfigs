@@ -1,83 +1,3 @@
-"*****************************************************************************
-" My stuff
-"*****************************************************************************
-" Load local specific ~/.vimrc_local file
-source ~/.vimrc_local
-
-" Format files with clang format on save(pre-write)
-let g:clang_format#auto_format=1
-
-" Press \c, to prepend license to top of the current buffer.
-nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
-
-" Press "\nn", "\nb" to switch between open buffers
-nnoremap <leader>nn :bn<CR>
-nnoremap <leader>nb :bp<CR>
-
-" Press "\e", to show/hide syntastic error loc list for current window
-function! ToggleErrors()
-    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
-        " No location/quickfix list shown, open syntastic error
-        " location panel
-        Errors
-    else
-        lclose
-    endif
-endfunction
-nnoremap <leader>e : <C-u>call ToggleErrors()<CR>
-
-" Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
-let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
-
-" Highlight column 120
-set colorcolumn=120
-highlight ColorColumn ctermbg=darkgray
-
-" Source .vimrc from any folder you run vim from..
-" set exrc
-" Source only secure stuff from the custom .vimrc files
-set secure
-
-" Shortcut "\ + <Space>", to rapidly toggle "set list". AKA: Show
-" hidden characters(tab, space, eol, trail etc..).
-nmap <leader><space> :set list!<CR>
-set listchars=tab:▸\ ,eol:¬,trail:◦,space:◦
-
-" Shortcut "\cdc", to change working directory to the directory of the
-" currently opened file. (change directory to current)
-nnoremap <leader>cdc :cd %:p:h<CR>:pwd<CR>
-
-" Shortcut "\nt", to remove trailing whitespace.
-nnoremap <leader>nt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-" Disable line wrapping for common source files
-if !exists('*s:setupNoWrapping')
-    function s:setupNoWrapping()
-        set nowrap
-    endfunction
-endif
-" No wrap for source files
-augroup vimrc-no-wrapping-code
-  autocmd!
-  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake,*.sh call s:setupNoWrapping()
-augroup END
-
-" Press "\f", to format current file with clang-format.py.
-function! MyClangFormatFile()
-    let clangFormatFriendlyFileTypes = ['h', 'hpp', 'c', 'cxx', 'cpp']
-    if index(clangFormatFriendlyFileTypes, &filetype) == -1
-        echo "Could not format, file type is unsupported!"
-        return
-    endif
-    if empty(g:SQCHY_CLANG_FORMAT_PY)
-        return
-    endif
-    " Format file with clang-format
-    let l:lines="all"
-    execute 'py3f' . g:SQCHY_CLANG_FORMAT_PY
-endfunction
-map <leader>f : <C-u> call MyClangFormatFile()<CR>
-
 " vim-bootstrap 564604c
 
 "*****************************************************************************
@@ -672,3 +592,85 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+"*****************************************************************************
+" My stuff
+"*****************************************************************************
+" Load local specific ~/.vimrc_local file
+source ~/.vimrc_local
+
+" Format files with clang format on save(pre-write)
+let g:clang_format#auto_format=1
+
+" Press \c, to prepend license to top of the current buffer.
+nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
+
+" Press "\nn", "\nb" to switch between open buffers
+nnoremap <leader>nn :bn<CR>
+nnoremap <leader>nb :bp<CR>
+
+" Press "\e", to show/hide syntastic error loc list for current window
+function! ToggleErrors()
+    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+        " No location/quickfix list shown, open syntastic error
+        " location panel
+        Errors
+    else
+        lclose
+    endif
+endfunction
+nnoremap <leader>e : <C-u>call ToggleErrors()<CR>
+
+" Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
+let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
+
+" Highlight column 120
+set colorcolumn=120
+highlight ColorColumn ctermbg=darkgray
+
+" Source .vimrc from any folder you run vim from..
+" set exrc
+" Source only secure stuff from the custom .vimrc files
+set secure
+
+" Shortcut "\ + <Space>", to rapidly toggle "set list". AKA: Show
+" hidden characters(tab, space, eol, trail etc..).
+nmap <leader><space> :set list!<CR>
+set listchars=tab:▸\ ,eol:¬,trail:◦,space:◦
+
+" Shortcut "\cdc", to change working directory to the directory of the
+" currently opened file. (change directory to current)
+nnoremap <leader>cdc :cd %:p:h<CR>:pwd<CR>
+
+" Shortcut "\nt", to remove trailing whitespace.
+nnoremap <leader>nt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Disable line wrapping for common source files
+if !exists('*s:setupNoWrapping')
+    function s:setupNoWrapping()
+        set nowrap
+    endfunction
+endif
+" No wrap for source files
+augroup vimrc-no-wrapping-code
+  autocmd!
+  autocmd BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.cmake,*.sh call s:setupNoWrapping()
+augroup END
+
+" Press "\f", to format current file with clang-format.py.
+function! MyClangFormatFile()
+    let clangFormatFriendlyFileTypes = ['h', 'hpp', 'c', 'cxx', 'cpp']
+    if index(clangFormatFriendlyFileTypes, &filetype) == -1
+        echo "Could not format, file type is unsupported!"
+        return
+    endif
+    if empty(g:SQCHY_CLANG_FORMAT_PY)
+        return
+    endif
+    " Format file with clang-format
+    let l:lines="all"
+    execute 'py3f' . g:SQCHY_CLANG_FORMAT_PY
+endfunction
+map <leader>f : <C-u> call MyClangFormatFile()<CR>
+
+
