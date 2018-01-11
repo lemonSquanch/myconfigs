@@ -199,6 +199,7 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 "" Mine
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/vim-clang-format'
+Plug 'qpkorr/vim-bufkill'
 "*****************************************************************************
 "*****************************************************************************
 
