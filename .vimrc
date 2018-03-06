@@ -6,6 +6,10 @@
 " Load local specific ~/.vimrc_local file
 source ~/.vimrc_local
 
+" Reorder sections in startify
+let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks',
+        \ 'commands']
+
 " Format files with clang format on save(pre-write)
 let g:clang_format#command='clang-format-5.0'
 let g:clang_format#auto_format=1
