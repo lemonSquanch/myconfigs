@@ -15,6 +15,8 @@ class Settings:
         self.VIMRC_LOCAL_DESTINATION_PATH = str(Path.home()) + "/"
         self.LEMONSQUANCH_INCLUDE_FILE_NAME = ".lemonsquanch.include"
         self.LEMONSQUANCH_INCLUDE_DESTINATION_PATH = str(Path.home()) + "/"
+        self.CTAGS_FILE_NAME= ".ctags"
+        self.CTAGS_DESTINATION_PATH = str(Path.home()) + "/"
 
 def copyIfNotExists(fn, destination):
     if not Path(destination + fn).is_file():
@@ -27,6 +29,7 @@ def copyConfigurationFiles(s):
     copyIfNotExists(s.VIMRC_FILE_NAME, s.VIMRC_DESTINATION_PATH)
     copyIfNotExists(s.VIMRC_LOCAL_FILE_NAME, s.VIMRC_LOCAL_DESTINATION_PATH)
     copyIfNotExists(s.LEMONSQUANCH_INCLUDE_FILE_NAME, s.LEMONSQUANCH_INCLUDE_DESTINATION_PATH)
+    copyIfNotExists(s.CTAGS_FILE_NAME, s.CTAGS_DESTINATION_PATH)
     linfo("\tConfig copy finished!")
 
 
