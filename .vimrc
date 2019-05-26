@@ -159,11 +159,16 @@ endif
 
 if v:version >= 704
   "" Snippets
-  Plug 'SirVer/ultisnips'
+  "Plug 'SirVer/ultisnips' " Deprecated in favor of SnipMate
   Plug 'FelikZ/ctrlp-py-matcher'
-endif
+  "Plug 'honza/vim-snippets'
 
-Plug 'honza/vim-snippets'
+  Plug 'garbas/vim-snipmate'
+  Plug 'dimatura/snipmate-snippets'
+  Plug 'MarcWeber/vim-addon-mw-utils' "required for snipmate
+  Plug 'tomtom/tlib_vim' "required for snipmate
+
+endif
 
 "" Color
 Plug 'tomasr/molokai'
@@ -551,9 +556,6 @@ noremap <leader>w :bn<CR>
 
 "" Close buffer
 noremap <leader>c :bd<CR>
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
 
 "" Switching windows
 noremap <C-j> <C-w>j
