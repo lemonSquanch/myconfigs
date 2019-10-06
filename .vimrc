@@ -6,13 +6,24 @@
 " Load local specific ~/.vimrc_local file
 source ~/.vimrc_local
 
+command! -complete=dir -nargs=* -complete=dir MakeTags !ctags -R --sort=1 --if0=yes --fields=+afikKlmnsSzt --c++-kinds=+p --extra=+q --extra=+f --exclude=.git --exclude=sysroot --exclude=.build --exclude=demoCppEster --totals=yes <args>
+set wildmenu
+set tags+=./tags,tags;
+
 " Reorder sections in startify
 let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks',
         \ 'commands']
 
 " Format files with clang format on save(pre-write)
-let g:clang_format#command='clang-format-5.0'
+let g:clang_format#command='clang-format'
 let g:clang_format#auto_format=1
+
+"" Map leader to ,
+let mapleader=','
+
+"" Run build command
+nmap <leader><F5> :! cmd.exe //c build.bat<CR>
+nmap <leader><F6> :!./build.sh<CR>
 
 " Press \c, to prepend license to top of the current buffer.
 nnoremap <leader>c :0put =DEFAULT_LICENSE_TEXT<CR>
@@ -34,7 +45,12 @@ endfunction
 nnoremap <leader>e : <C-u>call ToggleErrors()<CR>
 
 " Add paths to vim search paths(used with go to file fg / Ctrl + W Ctrl + F)
-let &path.="/usr/include/,/usr/include/*/,/usr/include/*/*/,/usr/include/*/*/*/,/usr/include/*/*/*/*/,"
+set path+=**
+set path+=/usr/include/
+set path+=/usr/include/*/
+set path+=/usr/include/*/*/
+set path+=/usr/include/*/*/*/
+set path+=/usr/include/*/*/*/*/
 
 " Highlight column 120
 set colorcolumn=120
@@ -244,9 +260,6 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
-
-"" Map leader to ,
-let mapleader=','
 
 "" Enable hidden buffers
 set hidden
@@ -681,5 +694,4 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
 
